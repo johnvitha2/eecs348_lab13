@@ -16,7 +16,7 @@ string tf(bool output) {
 
 void run_test(const vector<int>& attendance_records, bool expected, const string& question) {
     bool actual = fail_lecture(attendance_records);
-    cout << question;
+    cout << question << endl;
     cout << "Test case: ";
     for (int attendance : attendance_records) cout << attendance << " ";
     cout << "Expected Output: " << tf(expected) << endl;
@@ -29,13 +29,13 @@ int main(){
     * Yes, there is a fault at line 3 with the for-loop’s indexing. In C++, vector indices begin at 0, so the for loop starts 
     * at the second element of the vector (i=1), when it should start at the first element (i=0) to execute as intended. 
     */
-    run_test({1, 1, 0, 1, 1, 0, 1, 1, 1, 1}, 0, "2. Define a test case that does not execute the fault. ");
+    run_test({1, 1, 0, 1, 1, 0, 1, 1, 1, 1}, false, "2. Define a test case that does not execute the fault. ");
     /*
     * 3. Define a test case that executes the fault but does not result in an error state.
     * There is no test case that executes the fault but does not result in an error state. If the fault is executed 
     * (the student is absent on the first day), the absent count will always be one less than expected. Even if the program's 
     * output is correct, an error state occurs because the software has entered an incorrect internal state.  
     */
-    run_test({0, 1, 1, 1, 1, 1, 1, 1, 1, 1}, 0, "4. Define a test case that results in an error state but not a failure. ");
-    run_test({0, 0, 0, 1, 1, 1, 1, 1, 1, 1}, 1, "{0, 0, 0, 1, 1, 1, 1, 1, 1, 1}");
+    run_test({0, 1, 1, 1, 1, 1, 1, 1, 1, 1}, false, "4. Define a test case that results in an error state but not a failure. ");
+    run_test({0, 0, 0, 1, 1, 1, 1, 1, 1, 1}, true, "5. Define a test case that results in failure. ");
 }
