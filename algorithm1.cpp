@@ -19,6 +19,7 @@ void run_test(const vector<int>& attendance_records, bool expected, const string
     cout << question << endl;
     cout << "Test case: ";
     for (int attendance : attendance_records) cout << attendance << " ";
+    cout << endl;
     cout << "Expected Output: " << tf(expected) << endl;
     cout << "Actual Output:   " << tf(actual) << endl << endl;
 }
